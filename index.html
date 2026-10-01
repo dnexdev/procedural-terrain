@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Procedural Terrain</title>
+    <meta name="description" content="Heightmap to hand-built mesh, computed normals and a height based GLSL shader, in three.js." />
+  </head>
+  <body>
+    <canvas id="scene"></canvas>
+
+    <header class="panel hud">
+      <h1>Terrain <em>from a heightmap</em></h1>
+      <p class="pipeline">heightmap → vertices + UVs → triangles → normals → shader</p>
+      <dl class="stats">
+        <div><dt>grid</dt><dd id="stat-grid">-</dd></div>
+        <div><dt>vertices</dt><dd id="stat-vertices">-</dd></div>
+        <div><dt>triangles</dt><dd id="stat-triangles">-</dd></div>
+        <div><dt>heightmap</dt><dd id="stat-heightmap">-</dd></div>
+        <div><dt>mesh + normals</dt><dd id="stat-mesh">-</dd></div>
+      </dl>
+    </header>
+
+    <footer class="panel legend">
+      <div class="legend-title">height bands <span id="legend-mode"></span></div>
+      <div class="legend-bar" id="legend-bar"></div>
+      <div class="legend-labels" id="legend-labels"></div>
+      <p class="hint">Drag to orbit, scroll to zoom. Drop any image on the page to use it as a heightmap.</p>
+    </footer>
+
+    <div class="drop" id="drop">Drop to use as heightmap</div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <input type="file" id="file" accept="image/*" hidden />
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
